@@ -1,7 +1,7 @@
 :root {
   --background-color: #120c18;
-  --text-color: #eaddf0;       
-  --glow-color: #a26ea6;       
+  --text-color: #eaddf0;
+  --glow-color: #a26ea6;
 }
 
 * {
@@ -14,7 +14,7 @@ html, body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  overflow-y: auto; 
+  overflow-y: auto;
 }
 
 body {
@@ -35,12 +35,13 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-  max-width: 900px; 
+  max-width: 900px;
 }
+
 /* Então você veio ler o código fonte da página? Não tem nada aqui... */
 h1 {
-  font-size: clamp(2.5rem, 8vw, 7rem); 
-  font-weight: 400; 
+  font-size: clamp(2.5rem, 8vw, 7rem);
+  font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   animation: fadeInGlow 4s 1s ease-in-out forwards;
@@ -86,7 +87,7 @@ h1 {
 
 .about-content strong {
     font-weight: 700;
-    color: #f0e0ff; 
+    color: #f0e0ff;
     text-shadow: 0 0 8px var(--glow-color);
 }
 
@@ -101,17 +102,21 @@ h1 {
 
 
 .about-links .reveal-link {
-    animation-delay: 3.5s; 
-    font-size: clamp(1rem, 2vw, 1.25rem); 
+    animation-delay: 3.5s;
+    font-size: clamp(1rem, 2vw, 1.25rem);
 }
 
 .post-content {
+  /*
   opacity: 0;
   animation: fadeInContent 2s 1s ease-in-out forwards;
+  */
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   max-width: 600px;
+  /* Nova animação para o conteúdo dinâmico */
+  animation: fadeInContent 1.5s ease-in-out forwards;
 }
 
 .post-content p {
@@ -119,6 +124,7 @@ h1 {
   line-height: 1.7;
   text-shadow: 0 0 5px var(--glow-color);
   font-weight: 400;
+  color: white; /* Adicionado para garantir que o texto de resposta seja branco */
 }
 
 .post-content strong {
@@ -188,6 +194,27 @@ h1 {
     padding: 0 1rem;
 }
 
+.continue-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+    background-color: transparent;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid var(--glow-color);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    text-shadow: 0 0 8px var(--glow-color);
+}
+
+.continue-button:hover, .continue-button:focus {
+    background-color: rgba(162, 110, 166, 0.2);
+    box-shadow: 0 0 15px var(--glow-color);
+    color: #f0e0ff;
+}
 
 @keyframes fadeInGlow {
   from {
