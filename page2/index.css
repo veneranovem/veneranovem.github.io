@@ -1,0 +1,231 @@
+:root {
+  --background-color: #120c18;
+  --text-color: #eaddf0;       
+  --glow-color: #a26ea6;       
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto; 
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Cinzel', serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  background-image: radial-gradient(circle, #2a1f33 0%, var(--background-color) 70%);
+}
+
+main {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  max-width: 900px; 
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 7rem); 
+  font-weight: 400; 
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: fadeInGlow 4s 1s ease-in-out forwards;
+  opacity: 0;
+  text-shadow:
+    0 0 10px var(--text-color),
+    0 0 20px var(--glow-color),
+    0 0 40px var(--glow-color),
+    0 0 80px var(--glow-color);
+}
+
+.reveal-link {
+  font-family: 'Cinzel', serif;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  letter-spacing: 0.05em;
+  opacity: 0;
+  animation: fadeInLink 2s 4.5s ease-in-out forwards;
+  transition: text-shadow 0.3s ease;
+}
+
+.reveal-link:hover {
+  text-shadow:
+    0 0 5px var(--text-color),
+    0 0 10px var(--glow-color);
+}
+
+.about-content {
+  opacity: 0;
+  animation: fadeInContent 2s 1s ease-in-out forwards;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-content p {
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  line-height: 1.7;
+  text-shadow: 0 0 5px var(--glow-color);
+  font-weight: 400;
+}
+
+.about-content strong {
+    font-weight: 700;
+    color: #f0e0ff; 
+    text-shadow: 0 0 8px var(--glow-color);
+}
+
+.about-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    width: 100%;
+    align-items: center;
+}
+
+
+.about-links .reveal-link {
+    animation-delay: 3.5s; 
+    font-size: clamp(1rem, 2vw, 1.25rem); 
+}
+
+.post-content {
+  opacity: 0;
+  animation: fadeInContent 2s 1s ease-in-out forwards;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 600px;
+}
+
+.post-content p {
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  line-height: 1.7;
+  text-shadow: 0 0 5px var(--glow-color);
+  font-weight: 400;
+}
+
+.post-content strong {
+    font-weight: 700;
+    color: #f0e0ff;
+    text-shadow: 0 0 8px var(--glow-color);
+}
+
+.name-form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 400px;
+    opacity: 0;
+    animation: fadeInLink 2s 3.5s ease-in-out forwards;
+    transition: opacity 0.5s;
+}
+
+.name-form input, .name-form button {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--glow-color);
+    background-color: transparent;
+    color: var(--text-color);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.name-form input::placeholder {
+    color: rgba(234, 221, 240, 0.5);
+}
+
+.name-form input:focus {
+    outline: none;
+    box-shadow: 0 0 10px var(--glow-color);
+    border-color: var(--text-color);
+}
+
+.name-form button {
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.name-form button:hover, .name-form button:focus {
+    background-color: rgba(162, 110, 166, 0.2);
+    box-shadow: 0 0 15px var(--glow-color);
+    color: #f0e0ff;
+}
+
+.name-form button:disabled {
+  cursor: not-allowed;
+  background-color: transparent;
+}
+
+.confirmation-message {
+    margin-top: 2rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: #f0e0ff;
+    text-shadow: 0 0 8px var(--glow-color);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    min-height: 2rem;
+    padding: 0 1rem;
+}
+
+
+@keyframes fadeInGlow {
+  from {
+    opacity: 0;
+    text-shadow:
+      0 0 5px var(--text-color),
+      0 0 10px var(--glow-color),
+      0 0 15px var(--glow-color),
+      0 0 20px var(--glow-color);
+  }
+  to {
+    opacity: 1;
+    text-shadow:
+      0 0 10px var(--text-color),
+      0 0 20px var(--glow-color),
+      0 0 40px var(--glow-color),
+      0 0 80px var(--glow-color);
+  }
+}
+
+@keyframes fadeInLink {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
