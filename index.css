@@ -1,0 +1,98 @@
+:root {
+  --background-color: #120c18; 
+  --text-color: #eaddf0;       
+  --glow-color: #a26ea6;       
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; 
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Cinzel', serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: radial-gradient(circle, #2a1f33 0%, var(--background-color) 70%);
+}
+
+main {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 7rem);
+  font-weight: 400; 
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: fadeInGlow 4s 1s ease-in-out forwards;
+  opacity: 0;
+  text-shadow:
+    0 0 10px var(--text-color),
+    0 0 20px var(--glow-color),
+    0 0 40px var(--glow-color),
+    0 0 80px var(--glow-color);
+}
+
+.reveal-link {
+  font-family: 'Cinzel', serif;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  letter-spacing: 0.05em;
+  opacity: 0;
+  animation: fadeInLink 2s 4.5s ease-in-out forwards;
+  transition: text-shadow 0.3s ease;
+}
+
+.reveal-link:hover {
+  text-shadow:
+    0 0 5px var(--text-color),
+    0 0 10px var(--glow-color);
+}
+
+
+@keyframes fadeInGlow {
+  from {
+    opacity: 0;
+    text-shadow:
+      0 0 5px var(--text-color),
+      0 0 10px var(--glow-color),
+      0 0 15px var(--glow-color),
+      0 0 20px var(--glow-color);
+  }
+  to {
+    opacity: 1;
+    text-shadow:
+      0 0 10px var(--text-color),
+      0 0 20px var(--glow-color),
+      0 0 40px var(--glow-color),
+      0 0 80px var(--glow-color);
+  }
+}
+
+@keyframes fadeInLink {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
