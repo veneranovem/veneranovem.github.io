@@ -37,7 +37,7 @@ main {
   gap: 3rem;
   max-width: 900px; 
 }
-
+/* Então você veio ler o código fonte da página? Não tem nada aqui... */
 h1 {
   font-size: clamp(2.5rem, 8vw, 7rem); 
   font-weight: 400; 
